@@ -1,0 +1,54 @@
+<!doctype html>
+{% load staticfiles %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}" type="text/css" />
+    <title>{% block title %}{% endblock %}</title>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+
+            <div class="navbar-header">
+                <h1><a href="{% url 'home' %}">Journal</a></h1>
+            </div>
+            <div class="nav navbar-nav navbar-right">
+                <ul>
+                    <div class="nav nav-pills">
+                    <li role="presentation"><a href="{% url 'create_resource' %}">Create New Resource</a></li>
+                    <li role="presentation"><a href="{% url 'home' %}">View Resources</a></li>
+                    </div>
+                    <div class="dropdown">
+                        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                            Tech Types <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                        <li><a href="#">Languages</a></li>
+                        <li><a href="#">Frameworks</a></li>
+                        <li><a href="#">Databases</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="#">Other</a></li>
+                        </ul>
+                    </div>
+                </ul>
+            </div>
+        </div>
+
+    </nav>
+    {% block content %}
+    {% endblock %}
+    <script>
+        $(document).ready(function(){
+            $('.dropdown-toggle').dropdown()
+        });
+    </script>
+</body>
+</html>

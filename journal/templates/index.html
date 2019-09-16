@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block title %}Home{% endblock %}
+{% block content %}
+
+<form method="GET" action="{% url 'search' %}">
+    <input type="text" name="search" placeholder="Search">
+    <button type="submit">Submit</button>
+</form>
+
+{% for message in messages %}
+{{ message }}
+{% endfor %}
+
+{% if all_resources %}
+
+{% if 'search' in request.path %}
+    <a href="{% url 'home' %}" >Clear search</a>
+{% endif %}
+
+<table width="100%">
+
+    <tr>
+        <th>Name</th>
+        <th>Link</th>
+        <th></th>
+    </tr>
+    {% for resource in all_resources %}
+    <tr>
+        <td>{{ resource.name }}</td>
+        <td>
+        {% if resource.link != None %}
+        {{ resource.link }}
+        {% endif %}
+        </td>
+
+        <td>
+
+            {% if resource.language != None %}
+            <a href="{% url 'search_tech_type' resource.language|slugify|title %}">{{ resource.language }}</a>
+            {% endif %}
+            {% if resource.framework != None %}
+            <a href="{% url 'search_tech_type' resource.framework|slugify|title  %}">{{ resource.framework }}</a>
+            {% endif %}
+            {% if resource.database != None %}
+            <a href="{% url 'search_tech_type' resource.database|slugify|title  %}">{{ resource.database }}</a>
+            {% endif %}
+            {% if resource.technology != None %}
+            <a href="{% url 'search_tech_type' resource.technology|slugify|title  %}">{{ resource.technology }}</a>
+            {% endif %}
+        </td>
+    </tr>
+    {% endfor %}
+
+
+
+
+
+</table>
+
+{% endif %}
+{% endblock %}
