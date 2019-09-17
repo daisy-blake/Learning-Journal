@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     'journal',
     'create_resource',
     'search',
+    'tech_types',
+    'create_resource_test',
 ]
 
 MIDDLEWARE = [

@@ -23,7 +23,7 @@
             <div class="nav navbar-nav navbar-right">
                 <ul>
                     <div class="nav nav-pills">
-                    <li role="presentation"><a href="{% url 'create_resource' %}">Create New Resource</a></li>
+                    <li role="presentation"><a href="{% url 'create_resource_test' %}">Create New Resource</a></li>
                     <li role="presentation"><a href="{% url 'home' %}">View Resources</a></li>
                     </div>
                     <div class="dropdown">
@@ -31,7 +31,7 @@
                             Tech Types <span class="caret"></span>
                         </button>
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                        <li><a href="#">Languages</a></li>
+                        <li><a href="{% url 'languages' %}">Languages</a></li>
                         <li><a href="#">Frameworks</a></li>
                         <li><a href="#">Databases</a></li>
                         <li role="separator" class="divider"></li>

@@ -20,4 +20,5 @@ def create_resource(request):
     else:
         form = ResourceForm()
 
+
     return render(request, 'create_resource.html', {"form": form})

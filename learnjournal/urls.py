@@ -17,12 +17,17 @@ from django.contrib import admin
 from django.conf.urls import url, include
 from journal.views import home
 from create_resource import urls as create_resource_urls
+from create_resource_test import urls as create_resource_test_urls
 from search import urls as search_urls
+from tech_types import urls as tech_types_urls
+
 
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', home, name='home'),
     url(r'^create-resource/', include(create_resource_urls)),
-    url(r'^search/', include(search_urls))
+    url(r'^create-resource_test/', include(create_resource_test_urls)),
+    url(r'^search/', include(search_urls)),
+    url(r'tech-types/', include(tech_types_urls))
 ]

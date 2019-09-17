@@ -4,6 +4,7 @@ from __future__ import unicode_literals
 from django.shortcuts import render
 from django.contrib import messages
 from create_resource.models import Resource
+from create_resource_test.models import ResourceTest
 
 
 # Create your views here.
@@ -11,7 +12,7 @@ def search(request):
     print("B")
     if request.method == "GET":
         search = request.GET.get('search', False)
-        resource = Resource.objects
+        resource = ResourceTest.objects
 
         if resource.filter(name__icontains=search):
             all_resources = resource.filter(name__icontains=search).order_by("-created_date")
@@ -45,7 +46,7 @@ def search_tech_type(request, tech_type):
     tech_type = tech_type.title().translate(translation_table)
     print(tech_type)
 
-    resource = Resource.objects
+    resource = ResourceTest.objects
 
     if resource.filter(name__icontains=tech_type):
         all_resources = resource.filter(name__icontains=tech_type).order_by("-created_date")

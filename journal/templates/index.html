@@ -4,8 +4,10 @@
 {% block content %}
 
 <form method="GET" action="{% url 'search' %}">
-    <input type="text" name="search" placeholder="Search">
-    <button type="submit">Submit</button>
+    <div class="form-group">
+        <input type="text" class="form-control" name="search" placeholder="Search">
+    </div>
+    <button type="submit" class="btn btn-light">Submit</button>
 </form>
 
 {% for message in messages %}
@@ -18,7 +20,7 @@
     <a href="{% url 'home' %}" >Clear search</a>
 {% endif %}
 
-<table width="100%">
+<table class="table">
 
     <tr>
         <th>Name</th>

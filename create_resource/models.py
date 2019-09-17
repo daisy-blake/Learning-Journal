@@ -4,37 +4,35 @@ from __future__ import unicode_literals
 from django.db import models
 from django.utils import timezone
 
-# Create your models here.
-class Resource(models.Model):
-
-    LANGUAGE_CHOICES = (
+LANGUAGE_CHOICES = (
         ('Python', 'Python'),
         ('Java', 'Java'),
         ('Ruby', 'Ruby'),
         ('AdibsLanguage', 'AdibsLanguage')
-    )
+)
 
-    FRAMEWORK_CHOICES = (
-        ('Django', 'Django'),
-        ('Flask', 'Flask'),
-        ('Spring boot', 'Spring boot')
-    )
+FRAMEWORK_CHOICES = (
+    ('Django', 'Django'),
+    ('Flask', 'Flask'),
+    ('Spring boot', 'Spring boot')
+)
 
-    DATABASE_CHOICES = (
-        ('MySQL', 'MySQL'),
-        ('PostgreSQL', 'PostgreSQL'),
-        ('MongoDB', 'MongoDB')
-    )
+DATABASE_CHOICES = (
+    ('MySQL', 'MySQL'),
+    ('PostgreSQL', 'PostgreSQL'),
+    ('MongoDB', 'MongoDB')
+)
 
-    TECHNOLOGY_CHOICES = (
-        ('AWS', 'AWS'),
-        ('Programming', 'Programming'),
-        ('Git', 'Git'),
-        ('Web', 'Web'),
-        ('Machine Learning', 'Machine Learning')
-    )
+TECHNOLOGY_CHOICES = (
+    ('AWS', 'AWS'),
+    ('Programming', 'Programming'),
+    ('Git', 'Git'),
+    ('Web', 'Web'),
+    ('Machine Learning', 'Machine Learning')
+)
 
-
+# Create your models here.
+class Resource(models.Model):
 
     name = models.CharField(max_length=400)
     link = models.CharField(max_length=1000, blank=True, null=True)
@@ -48,6 +46,7 @@ class Resource(models.Model):
 
     def __str__(self):
         return self.name
+
 
 # UPDATE mysql.user SET Password=PASSWORD('Password') WHERE User='root';
 # SET PASSWORD FOR 'root' = PASSWORD('Password');

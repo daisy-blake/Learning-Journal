@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load bootstrap_tags %}
+{% load staticfiles %}
+{% block title %}Create Resource{% endblock %}
+
+{% block content %}
+<form action="{% url 'create_resource_test' %}" method="POST">
+    {% csrf_token %}
+    <div class="form-group">
+        <label>Name</label>
+        <input type="text" class="form-control" name="name" required>
+    </div>
+    <div class="form-group">
+        <label>Link</label>
+        <input type="text" class="form-control" name="link">
+    </div>
+    <div class="form-group">
+        <label>Attachment</label>
+        <input type="file" class="form-control" name="attachment">
+    <div class="form-group">
+        <label>Language</label>
+        <select class="form-control" name="language">
+            {% for language in languages %}
+            <option value="{{ language }}">{{ language }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div class="form-group">
+        <label>Framework</label>
+        <select class="form-control" name="framework">
+            {% for framework in frameworks %}
+            <option value="{{ framework }}">{{ framework }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div class="form-group">
+        <label>Database</label>
+        <select class="form-control" name="database">
+            {% for database in databases %}
+            <option value="{{ database }}">{{ database }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div class="form-group">
+        <label>Technology</label>
+        <select class="form-control" name="technology">
+            {% for technology in technologys %}
+            <option value="{{ technology }}">{{ technology }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+{% endblock %}
