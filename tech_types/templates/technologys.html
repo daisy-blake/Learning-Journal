@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load bootstrap_tags %}
+{% load staticfiles %}
+{% block title %}Languages{% endblock %}
+{% block content %}
+
+{% if choices %}
+<table class="table">
+    <tr>
+        <th><h2>Other Technologies</h2></th>
+    </tr>
+    {% for choice in choices %}
+    <tr>
+        <td><h4><a href="{% url 'update_technology' choice.id %}">{{ choice.technology }}</a></h4></td>
+        <td><a href="{% url 'delete_technology' choice.id %}" class="btn btn-danger"><i class="glyphicon glyphicon-remove"></i></a></td>
+    </tr>
+    {% endfor %}
+</table>
+<a href="{% url 'create_technology' %}" class="btn btn-primary">Create New Technology</a>
+{% endif %}
+{% endblock %}

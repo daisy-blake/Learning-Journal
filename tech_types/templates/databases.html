@@ -12,9 +12,10 @@
     {% for choice in choices %}
     <tr>
         <td><h4><a href="{% url 'update_database' choice.id %}">{{ choice.database }}</a></h4></td>
+        <td><a href="{% url 'delete_database' choice.id %}" class="btn btn-danger"><i class="glyphicon glyphicon-remove"></i></a></td>
     </tr>
     {% endfor %}
 </table>
-
+<a href="{% url 'create_database' %}" class="btn btn-primary">Create New Database</a>
 {% endif %}
 {% endblock %}

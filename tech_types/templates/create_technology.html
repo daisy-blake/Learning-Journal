@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% load bootstrap_tags %}
+{% load staticfiles %}
+{% block title %}Update Language{% endblock %}
+{% block content %}
+<form action="{% url 'create_technology' %}" method="POST">
+    {% csrf_token %}
+    <div class="form-group">
+        <input type="text" class="form-control" name="technology">
+    </div>
+    <button type="submit" class="btn btn-primary">Save Technology</button>
+</form>
+{% endblock %}

@@ -12,9 +12,10 @@
     {% for choice in choices %}
     <tr>
         <td><h4><a href="{% url 'update_language' choice.id %}">{{ choice.language }}</a></h4></td>
+        <td><a href="{% url 'delete_language' choice.id %}" class="btn btn-danger"><i class="glyphicon glyphicon-remove"></i></a></td>
     </tr>
     {% endfor %}
 </table>
-
+<a href="{% url 'create_language' %}" class="btn btn-primary">Create New Language</a>
 {% endif %}
 {% endblock %}
