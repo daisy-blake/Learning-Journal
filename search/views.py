@@ -20,17 +20,17 @@ def search(request):
         elif resource.filter(link__icontains=search):
             all_resources = resource.filter(link__icontains=search).order_by("-created_date")
 
-        elif resource.filter(language__icontains=search):
-            all_resources = resource.filter(language__icontains=search).order_by("-created_date")
+        elif resource.filter(language__language__icontains=search):
+            all_resources = resource.filter(language__language__icontains=search).order_by("-created_date")
 
-        elif resource.filter(framework__icontains=search):
-            all_resources = resource.filter(framework__icontains=search).order_by("-created_date")
+        elif resource.filter(framework__framework__icontains=search):
+            all_resources = resource.filter(framework__framework__icontains=search).order_by("-created_date")
 
-        elif resource.filter(database__icontains=search):
+        elif resource.filter(database__database__icontains=search):
             all_resources = resource.filter(database__icontains=search).order_by("-created_date")
 
-        elif resource.filter(technology__icontains=search):
-            all_resources = resource.filter(technology__icontains=search).order_by("-created_date")
+        elif resource.filter(technology__technology__icontains=search):
+            all_resources = resource.filter(technology__technology__icontains=search).order_by("-created_date")
 
         else:
             all_resources = None
@@ -48,23 +48,17 @@ def search_tech_type(request, tech_type):
 
     resource = ResourceTest.objects
 
-    if resource.filter(name__icontains=tech_type):
-        all_resources = resource.filter(name__icontains=tech_type).order_by("-created_date")
+    if resource.filter(language__language__icontains=tech_type):
+        all_resources = resource.filter(language__language__icontains=tech_type).order_by("-created_date")
 
-    elif resource.filter(link__icontains=tech_type):
-        all_resources = resource.filter(link__icontains=tech_type).order_by("-created_date")
+    elif resource.filter(framework__framework__icontains=tech_type):
+        all_resources = resource.filter(framework__framework__icontains=tech_type).order_by("-created_date")
 
-    elif resource.filter(language__icontains=tech_type):
-        all_resources = resource.filter(language__icontains=tech_type).order_by("-created_date")
+    elif resource.filter(database__database__icontains=tech_type):
+        all_resources = resource.filter(database__database__icontains=tech_type).order_by("-created_date")
 
-    elif resource.filter(framework__icontains=tech_type):
-        all_resources = resource.filter(framework__icontains=tech_type).order_by("-created_date")
-
-    elif resource.filter(database__icontains=tech_type):
-        all_resources = resource.filter(database__icontains=tech_type).order_by("-created_date")
-
-    elif resource.filter(technology__icontains=tech_type):
-        all_resources = resource.filter(technology__icontains=tech_type).order_by("-created_date")
+    elif resource.filter(technology__technology__icontains=tech_type):
+        all_resources = resource.filter(technology__technology__icontains=tech_type).order_by("-created_date")
 
     else:
         all_resources = None

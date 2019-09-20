@@ -39,10 +39,10 @@
         <td>
 
             {% if resource.language != None %}
-            <a href="{% url 'search_tech_type' resource.language|slugify|title %}">{{ resource.language }}</a>
+            <a href="{% url 'search_tech_type' resource.language|slugify|title %}">{{ resource.language.language }}</a>
             {% endif %}
             {% if resource.framework != None %}
-            <a href="{% url 'search_tech_type' resource.framework|slugify|title  %}">{{ resource.framework }}</a>
+            <a href="{% url 'search_tech_type' resource.framework|slugify|title  %}">{{ resource.framework.framework }}</a>
             {% endif %}
             {% if resource.database != None %}
             <a href="{% url 'search_tech_type' resource.database|slugify|title  %}">{{ resource.database }}</a>
@@ -50,6 +50,10 @@
             {% if resource.technology != None %}
             <a href="{% url 'search_tech_type' resource.technology|slugify|title  %}">{{ resource.technology }}</a>
             {% endif %}
+        </td>
+        <td>
+            <a href="{% url 'update_resource' resource.id %}" class="btn btn-info"><i class="glyphicon glyphicon-pencil"></i></a>
+            <a href="{% url 'delete_resource' resource.id %}" class="btn btn-danger"><i class="glyphicon glyphicon-remove"></i></a>
         </td>
     </tr>
     {% endfor %}

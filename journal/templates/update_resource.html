@@ -4,24 +4,24 @@
 {% block title %}Create Resource{% endblock %}
 
 {% block content %}
-<form action="{% url 'create_resource_test' %}" method="POST">
+<form action="" method="POST">
     {% csrf_token %}
 <!--    <div class="form-group">-->
 <!--        <label>Name</label>-->
-<!--        <input type="text" class="form-control" name="name" required>-->
+<!--        <input type="text" class="form-control" name="name" value="{{ resource.name }}" required>-->
 <!--    </div>-->
 <!--    <div class="form-group">-->
 <!--        <label>Link</label>-->
-<!--        <input type="text" class="form-control" name="link">-->
+<!--        <input type="text" class="form-control" name="link" value="{{ resource.link }}">-->
 <!--    </div>-->
 <!--    <div class="form-group">-->
 <!--        <label>Attachment</label>-->
-<!--        <input type="file" class="form-control" name="attachment">-->
+<!--        <input type="file" class="form-control" name="attachment" value="{{ resource.attachment }}">-->
 <!--    <div class="form-group">-->
 <!--        <label>Language</label>-->
 <!--        <select class="form-control" name="language">-->
 <!--            {% for language in languages %}-->
-<!--            <option >{{ language }}</option>-->
+<!--            <option value="{{ resource.language }}">{{ resource.language }}</option>-->
 <!--            {% endfor %}-->
 <!--        </select>-->
 <!--    </div>-->
@@ -29,7 +29,7 @@
 <!--        <label>Framework</label>-->
 <!--        <select class="form-control" name="framework">-->
 <!--            {% for framework in frameworks %}-->
-<!--            <option >{{ framework }}</option>-->
+<!--            <option value="{{ resource.framework }}">{{ resource.framework }}</option>-->
 <!--            {% endfor %}-->
 <!--        </select>-->
 <!--    </div>-->
@@ -37,7 +37,7 @@
 <!--        <label>Database</label>-->
 <!--        <select class="form-control" name="database">-->
 <!--            {% for database in databases %}-->
-<!--            <option >{{ database }}</option>-->
+<!--            <option value="{{ resource.database }}">{{ resource.database }}</option>-->
 <!--            {% endfor %}-->
 <!--        </select>-->
 <!--    </div>-->
@@ -45,11 +45,11 @@
 <!--        <label>Technology</label>-->
 <!--        <select class="form-control" name="technology">-->
 <!--            {% for technology in technologys %}-->
-<!--            <option >{{ technology }}</option>-->
+<!--            <option value="{{ resource.technology }}">{{ resource.technology }}</option>-->
 <!--            {% endfor %}-->
 <!--        </select>-->
 <!--    </div>-->
-    {{ form |  as_bootstrap }}
+    {{ form | as_bootstrap }}
     <button type="submit" class="btn btn-primary">Submit</button>
 </form>
 {% endblock %}

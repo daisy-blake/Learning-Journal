@@ -7,26 +7,32 @@ from create_resource_test.models import ResourceTest, Language, Framework, Datab
 
 # Create your views here.
 def create_resource_test(request):
-    languages = Language.objects.all()
-    frameworks = Framework.objects.all()
-    databases = Database.objects.all()
-    technologys = Technology.objects.all()
-
-    variables = {
-        'languages': languages,
-        'frameworks': frameworks,
-        'databases': databases,
-        'technologys': technologys
-    }
+    # languages = Language.objects.all()
+    # frameworks = Framework.objects.all()
+    # databases = Database.objects.all()
+    # technologys = Technology.objects.all()
+    #
+    # variables = {
+    #     'languages': languages,
+    #     'frameworks': frameworks,
+    #     'databases': databases,
+    #     'technologys': technologys
+    # }
 
     if request.method == "POST":
-        form = ResourceTestForm(request.POST)
+        form = ResourceTestForm(request.POST, request.FILES)
+        print(form)
+        language = request.POST.get('language')
+        framework = request.POST.get('framework')
+        database = request.POST.get('database')
+        technology = request.POST.get('technology')
 
         if form.is_valid():
-            form.save()
+            print("B")
+            resource = form.save()
 
         return redirect('home')
+    else:
+        form = ResourceTestForm
 
-
-
-    return render(request, 'create_resource_test.html', variables)
+    return render(request, 'create_resource_test.html', {"form": form})

@@ -7,25 +7,25 @@ from django.db import models
 
 
 class Language(models.Model):
-    language = models.CharField(max_length=100)
+    language = models.CharField(max_length=100, blank=True, null=True)
 
     def __str__(self):
         return self.language
 
 class Framework(models.Model):
-    framework = models.CharField(max_length=100)
+    framework = models.CharField(max_length=100, blank=True, null=True)
 
     def __str__(self):
         return self.framework
 
 class Database(models.Model):
-    database = models.CharField(max_length=100)
+    database = models.CharField(max_length=100, blank=True, null=True)
 
     def __str__(self):
         return self.database
 
 class Technology(models.Model):
-    technology = models.CharField(max_length=100)
+    technology = models.CharField(max_length=100, blank=True, null=True)
 
     def __str__(self):
         return self.technology
@@ -34,10 +34,10 @@ class ResourceTest(models.Model):
     name = models.CharField(max_length=400)
     link = models.CharField(max_length=1000, blank=True, null=True)
     attachment = models.FileField(upload_to='documents', blank=True, null=True)
-    language = models.ForeignKey(Language, default=None)
-    framework = models.ForeignKey(Framework, default=None)
-    database = models.ForeignKey(Database, default=None)
-    technology = models.ForeignKey(Technology, default=None)
+    language = models.ForeignKey(Language, default=None, blank=True, null=True)
+    framework = models.ForeignKey(Framework, default=None, blank=True, null=True)
+    database = models.ForeignKey(Database, default=None, blank=True, null=True)
+    technology = models.ForeignKey(Technology, default=None, blank=True, null=True)
     created_date = models.DateTimeField(auto_now_add=True, null=True)
 
     # published_date = models.DateTimeField(blank=True, null=True, default=timezone.now())

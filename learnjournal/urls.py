@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.conf.urls import url, include
-from journal.views import home
+from journal.views import home, delete_resource, update_resource
 from create_resource import urls as create_resource_urls
 from create_resource_test import urls as create_resource_test_urls
 from search import urls as search_urls
@@ -26,6 +26,8 @@ from tech_types import urls as tech_types_urls
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', home, name='home'),
+    url(r'^update_resource/(?P<pk>\d+)/$', update_resource, name="update_resource"),
+    url(r'^delete_resource/(?P<pk>\d+)/$', delete_resource, name="delete_resource"),
     url(r'^create-resource/', include(create_resource_urls)),
     url(r'^create-resource_test/', include(create_resource_test_urls)),
     url(r'^search/', include(search_urls)),
